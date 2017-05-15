@@ -31,6 +31,12 @@ distribution. The PMF of the CMP is given by
 The normalizing constant is calculated using a combination of finite truncation of the infinite sum
 as well as an approximation provided by Shmueli et al. (2005) for small nu and large mu.
 }
+\examples{
+x = rcmp(1000, 10, 2)
+plot(table(x)/length(x))
+pmf = dcmp(x, 10, 2)
+points(x, pmf)
+}
 \references{
 Guikema, Seth D., and Jeremy P. Goffelt. "A flexible count data regression model for risk analysis." Risk analysis 28.1 (2008): 213-223.
 

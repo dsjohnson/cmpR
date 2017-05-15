@@ -2,6 +2,10 @@
 #'
 #' @description Distribution and sampling fucntion are provided for the Conway-Maxwell-Poisson distribution.
 #' The 'mu' parameterization of Guikema and Goffelt (2008), where floor(mu) is the median of the distribution.
+#' The other parameter 'nu' controls over and underdispersion. For 0 < nu < 1, the distribution
+#' is overdispersed relative to a Poisson. For nu > 1, the distribution is underdispersed.
+#' For nu = 0, the distribution is equal to a geometric (for mu<1) and if nu = 1,
+#' the distribution is equal to the Poisson.
 #'
 #' \tabular{ll}{
 #' Package: \tab cmpR\cr
@@ -29,4 +33,5 @@
 #' @references Guikema, S.D. and Goffelt, J.P., 2008. A flexible count data regression
 #' model for risk analysis. Risk analysis, 28(1), pp.213-223.
 #' @useDynLib cmpR
+#' @importFrom Rcpp evalCpp
 NULL

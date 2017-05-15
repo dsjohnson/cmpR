@@ -2,4 +2,5 @@
 
 export(dcmp)
 export(rcmp)
+importFrom(Rcpp,evalCpp)
 useDynLib(cmpR)
