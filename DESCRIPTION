@@ -1,0 +1,13 @@
+Package: cmpR
+Type: Package
+Title: Conway-Maxwell-Poisson Distribution Function
+Version: 0.0.1
+Author: Devin S. Johnson
+Maintainer: Devin S. Johnson <devin.johnson@noaa.gov>
+Description: Provides functions for calculating the Conway-Maxwell-Poisson distribution function and variable simulation
+License: CC0
+Encoding: UTF-8
+LazyData: true
+Imports: Rcpp (>= 0.12.10)
+LinkingTo: Rcpp
+RoxygenNote: 6.0.1
