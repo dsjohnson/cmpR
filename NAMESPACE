@@ -2,3 +2,4 @@
 
 export(dcmp)
 export(rcmp)
+useDynLib(cmpR)

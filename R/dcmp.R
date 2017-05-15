@@ -27,9 +27,9 @@ dcmp = function(x, mu, nu, log=FALSE){
     mu = rep(mu, length(x))
   } else if(length(mu!=length(x))) stop("Length of mu vector must equal 1 or length(x)")
   if(length(nu)==1){
-    mu = rep(nu, length(x))
-  } else if(length(nu!=length(x))) stop("Length of mu vector must equal 1 or length(x)")
-  ff = cmp_log_pmf(x, mu, nu)
+    nu = rep(nu, length(x))
+  } else if(length(nu!=length(x))) stop("Length of nu vector must equal 1 or length(x)")
+  ff = ln_dcmp(x, mu, nu)
   if(log) return (ff)
   else return(exp(ff))
 }
