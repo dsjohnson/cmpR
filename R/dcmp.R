@@ -20,6 +20,12 @@
 #' @references Guikema, Seth D., and Jeremy P. Goffelt. "A flexible count data regression model for risk analysis." Risk analysis 28.1 (2008): 213-223.
 #'
 #' Shmueli, Galit, et al. "A useful distribution for fitting discrete data: revival of the Conway–Maxwell–Poisson distribution." Journal of the Royal Statistical Society: Series C (Applied Statistics) 54.1 (2005): 127-142.
+#'
+#' @examples
+#' x = rcmp(1000, 10, 2)
+#' plot(table(x)/length(x))
+#' pmf = dcmp(x, 10, 2)
+#' points(x, pmf)
 #' @export
 
 dcmp = function(x, mu, nu, log=FALSE){
