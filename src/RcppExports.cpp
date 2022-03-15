@@ -5,9 +5,14 @@
 
 using namespace Rcpp;
 
+#ifdef RCPP_USE_GLOBAL_ROSTREAM
+Rcpp::Rostream<true>&  Rcpp::Rcout = Rcpp::Rcpp_cout_get();
+Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
+#endif
+
 // ln_dcmp
 NumericVector ln_dcmp(const NumericVector& x, const NumericVector& mu, const NumericVector& nu);
-RcppExport SEXP cmpR_ln_dcmp(SEXP xSEXP, SEXP muSEXP, SEXP nuSEXP) {
+RcppExport SEXP _cmpR_ln_dcmp(SEXP xSEXP, SEXP muSEXP, SEXP nuSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -20,7 +25,7 @@ END_RCPP
 }
 // samp_cmp
 IntegerVector samp_cmp(const int& n, const double& mu, const double& nu);
-RcppExport SEXP cmpR_samp_cmp(SEXP nSEXP, SEXP muSEXP, SEXP nuSEXP) {
+RcppExport SEXP _cmpR_samp_cmp(SEXP nSEXP, SEXP muSEXP, SEXP nuSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -30,4 +35,15 @@ BEGIN_RCPP
     rcpp_result_gen = Rcpp::wrap(samp_cmp(n, mu, nu));
     return rcpp_result_gen;
 END_RCPP
+}
+
+static const R_CallMethodDef CallEntries[] = {
+    {"_cmpR_ln_dcmp", (DL_FUNC) &_cmpR_ln_dcmp, 3},
+    {"_cmpR_samp_cmp", (DL_FUNC) &_cmpR_samp_cmp, 3},
+    {NULL, NULL, 0}
+};
+
+RcppExport void R_init_cmpR(DllInfo *dll) {
+    R_registerRoutines(dll, NULL, CallEntries, NULL, NULL);
+    R_useDynamicSymbols(dll, FALSE);
 }

@@ -1,4 +1,6 @@
 #include <Rcpp.h>
+#include <Rmath.h>
+
 using namespace Rcpp;
 
 
@@ -22,7 +24,7 @@ double compute_log_z(const double& mu, const double& nu,
   }
   else{
     if(approx){
-      ln_z = nu*mu - (nu-1)*log(mu)/(nu) - (nu-1)*log(2*PI)/2 - log(nu)/2;
+      ln_z = nu*mu - (nu-1)*log(mu)/(nu) - (nu-1)*log(2*M_PI)/2 - log(nu)/2;
     } else{
       ln_z = R_NegInf;
       double ln_z_last = 0;
